@@ -24,8 +24,12 @@ namespace Snake_Game
         public void addPart()
         {
             Point p=body[body.Count-1];
-            if (direction == enDirection.up || direction == enDirection.down)
+            if (direction == enDirection.up)
                 p.Y += partSize;
+            else if (direction == enDirection.down)
+                p.Y -= partSize;
+            else if (direction == enDirection.right)
+                p.X -= partSize;
             else
                 p.X += partSize;
 
@@ -98,9 +102,9 @@ namespace Snake_Game
 
         public bool isSnakeBreakBoundries(int x1, int x2,int y1, int y2)
         {
-            if (body[0].X < x1 || body[0].X >= x2)
+            if (body[0].X <= x1 || body[0].X+partSize >= x2)
                 return true;
-            if (body[0].Y < y1 || body[0].Y >= y2)
+            if (body[0].Y <= y1 || body[0].Y+partSize >= y2)
                 return true;
 
             return false;
