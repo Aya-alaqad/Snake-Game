@@ -32,57 +32,42 @@ namespace Snake_Game
             body.Add(p);
         }
 
+        public bool isThereCollission()
+        {
+            for (int i = 1; i < body.Count; i++)
+            {
+                if (body[0] == body[i])
+                    return true;
+            }
+            return false;
+        }
         public void move()
         {
             Point p = body[0];
             if(direction==enDirection.up)
             {
-                p.Y -= partSize;
+                p.Y -= partSize+1;
             }
             else if(direction==enDirection.down)
             {
-                p.Y += partSize;
+                p.Y += partSize+1;
             }
             else if(direction==enDirection.right)
             {
-                p.X += partSize;
+                p.X += partSize+1;
             }
             else
             {
-                p.X -= partSize;
+                p.X -= partSize+1;
             }
+            
             body.Insert(0, p);
+
             body.RemoveAt(body.Count - 1);
+          
         }
 
-        public bool isCollision()
-        {
-            for(int i=0;i<body.Count;i++)
-            {
-                if(direction==enDirection.up )
-                {
-                    if (body[0].Y == body[i].Y + partSize)
-                        return true;
-                }
-                else if(direction==enDirection.down)
-                {
-                    if (body[0].Y + partSize == body[i].Y)
-                        return true;
-                }
-                else if(direction==enDirection.right)
-                {
-                    if (body[0].X + partSize == body[i].X)
-                        return true;
-                }
-                else
-                {
-                    if (body[0].X == body[i].X + partSize)
-                        return true;
-                }
-            }
-            return false;
-        }
-
+     
         public bool isFoodHitted(Point food,int foodSize)
         {
             if(direction==enDirection.up || direction==enDirection.down)
@@ -113,9 +98,9 @@ namespace Snake_Game
 
         public bool isSnakeBreakBoundries(int x1, int x2,int y1, int y2)
         {
-            if (body[0].X <= x1 || body[0].X >= x2)
+            if (body[0].X < x1 || body[0].X >= x2)
                 return true;
-            if (body[0].Y <= y1 || body[0].Y >= y2)
+            if (body[0].Y < y1 || body[0].Y >= y2)
                 return true;
 
             return false;
