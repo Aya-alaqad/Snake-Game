@@ -90,6 +90,7 @@
             this.pbRestart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbRestart.TabIndex = 1;
             this.pbRestart.TabStop = false;
+            this.pbRestart.Click += new System.EventHandler(this.pbRestart_Click);
             // 
             // pbStop
             // 
@@ -102,6 +103,7 @@
             this.pbStop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbStop.TabIndex = 0;
             this.pbStop.TabStop = false;
+            this.pbStop.Click += new System.EventHandler(this.pbStop_Click);
             // 
             // timer1
             // 

@@ -120,5 +120,26 @@ namespace Snake_Game
             }
            
         }
+
+        private void pbRestart_Click(object sender, EventArgs e)
+        {
+            resetGameToDefault();
+        }
+
+        private void pbStop_Click(object sender, EventArgs e)
+        {
+            isStoped = !isStoped;
+            if (isStoped)
+            {
+                timer1.Stop();
+                pbStop.Image = Properties.Resources.stop;
+            }
+            else
+            {
+                timer1.Start();
+                pbStop.Image = Properties.Resources.play;
+            }
+
+        }
     }
 }
