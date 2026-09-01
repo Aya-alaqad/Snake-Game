@@ -9,30 +9,57 @@ namespace Snake_Game
 {
     internal class clsSnake
     {
-        public List<Point> body;
-        public int partSize;       
+        private List<Point> _body;
+        private int _partSize;       
         public enum enDirection { up=1, down=2, left=3, right =4};
-        public enDirection direction;
+        private enDirection _direction;
+
+        public List<Point> body { get => _body; }
+        public int partSize { get => _partSize; }
+        public enDirection direction { get => _direction; set => _direction = value; }
+
 
         public clsSnake(int size=20)
         {
-            body = new List<Point>();
-            partSize = size;
-            direction = enDirection.left;
+            _body = new List<Point>();
+            _partSize = size;
+            _direction = enDirection.left;
         }
 
         public void addPart()
         {
             Point p=body[body.Count-1];
-            if (direction == enDirection.up)
-                p.Y += partSize;
-            else if (direction == enDirection.down)
-                p.Y -= partSize;
-            else if (direction == enDirection.right)
-                p.X -= partSize;
-            else
-                p.X += partSize;
+            if (body.Count < 2)
+            {
+                if (direction == enDirection.up)
+                    p.Y += partSize;
+                else if (direction == enDirection.down)
+                    p.Y -= partSize;
+                else if (direction == enDirection.right)
+                    p.X -= partSize;
+                else
+                    p.X += partSize;
+            }
 
+            else
+            {
+                Point p2 = new Point();
+                p2 = body[body.Count - 2];
+                if (p.Y == p2.Y)
+                {
+                    if (p.X > p2.X)
+                        p.X += partSize;
+                    else
+                        p.X -= partSize;
+                }
+                else if (p.X == p2.X)
+                {
+                    if (p.Y > p2.Y)
+                        p.Y += partSize;
+                    else
+                        p.Y -= partSize;
+                }
+            }
             body.Add(p);
         }
 
@@ -50,19 +77,19 @@ namespace Snake_Game
             Point p = body[0];
             if(direction==enDirection.up)
             {
-                p.Y -= partSize+1;
+                p.Y -= partSize;
             }
             else if(direction==enDirection.down)
             {
-                p.Y += partSize+1;
+                p.Y += partSize;
             }
             else if(direction==enDirection.right)
             {
-                p.X += partSize+1;
+                p.X += partSize;
             }
             else
             {
-                p.X -= partSize+1;
+                p.X -= partSize;
             }
             
             body.Insert(0, p);
