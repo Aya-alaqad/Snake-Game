@@ -14,10 +14,11 @@ namespace Snake_Game
     {
         enum enLosingCause { hitBoundries=1,hitItSelf=2}
         clsSnake snake;
-        bool isStoped = false;
+        bool isStopped = false;
         int foodSize = 40;
         Point food;
         int score;
+        Random r = new Random();
         public Form1()
         {
             InitializeComponent();
@@ -26,7 +27,7 @@ namespace Snake_Game
 
         private void resetGameToDefault()
         {
-            isStoped = false;
+            isStopped = false;
             food = new Point(400, 400);
             snake = new clsSnake();
             snake.body.Add(new Point(500, 500));
@@ -55,14 +56,13 @@ namespace Snake_Game
 
         private void changeFoodPosition()
         {
-            Random r = new Random();
-           food.X= r.Next(20,this.ClientSize.Width-20);
-           food.Y= r.Next(20, this.ClientSize.Height-20);
+           food.X= r.Next(0,this.ClientSize.Width-foodSize);
+           food.Y= r.Next(topPanel.ClientSize.Height, this.ClientSize.Height-foodSize);
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            if (isStoped)
+            if (isStopped)
                 return true;
 
             switch(keyData)
@@ -91,8 +91,9 @@ namespace Snake_Game
         {
             timer1.Stop();
             pbStop.Enabled = false;       
-            string massage = (cause == enLosingCause.hitItSelf ? "Snake hit it self" : "Snake hit the wall");
-            MessageBox.Show(massage, "Game Over");
+            string message = (cause == enLosingCause.hitItSelf ? "Snake hit it self" : "Snake hit the wall");
+            message += "         ";
+            MessageBox.Show(message, "Game Over");
 
         }
         private void timer1_Tick(object sender, EventArgs e)
@@ -128,8 +129,8 @@ namespace Snake_Game
 
         private void pbStop_Click(object sender, EventArgs e)
         {
-            isStoped = !isStoped;
-            if (isStoped)
+            isStopped = !isStopped;
+            if (isStopped)
             {
                 timer1.Stop();
                 pbStop.Image = Properties.Resources.stop;
