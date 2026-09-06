@@ -51,7 +51,7 @@
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(0, 0);
             this.topPanel.Name = "topPanel";
-            this.topPanel.Size = new System.Drawing.Size(982, 68);
+            this.topPanel.Size = new System.Drawing.Size(958, 68);
             this.topPanel.TabIndex = 0;
             // 
             // lblScore
@@ -59,11 +59,11 @@
             this.lblScore.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblScore.AutoSize = true;
             this.lblScore.BackColor = System.Drawing.Color.Transparent;
-            this.lblScore.Font = new System.Drawing.Font("Goudy Stout", 19.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScore.Font = new System.Drawing.Font("Goudy Stout", 20F);
             this.lblScore.ForeColor = System.Drawing.Color.White;
-            this.lblScore.Location = new System.Drawing.Point(95, 15);
+            this.lblScore.Location = new System.Drawing.Point(95, 19);
             this.lblScore.Name = "lblScore";
-            this.lblScore.Size = new System.Drawing.Size(45, 44);
+            this.lblScore.Size = new System.Drawing.Size(48, 47);
             this.lblScore.TabIndex = 1;
             this.lblScore.Text = "0";
             // 
@@ -84,7 +84,7 @@
             this.pbRestart.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.pbRestart.BackColor = System.Drawing.Color.Transparent;
             this.pbRestart.Image = global::Snake_Game.Properties.Resources.restart;
-            this.pbRestart.Location = new System.Drawing.Point(779, 4);
+            this.pbRestart.Location = new System.Drawing.Point(755, 4);
             this.pbRestart.Name = "pbRestart";
             this.pbRestart.Size = new System.Drawing.Size(89, 61);
             this.pbRestart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -97,7 +97,7 @@
             this.pbStop.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.pbStop.BackColor = System.Drawing.Color.Transparent;
             this.pbStop.Image = global::Snake_Game.Properties.Resources.play;
-            this.pbStop.Location = new System.Drawing.Point(881, 4);
+            this.pbStop.Location = new System.Drawing.Point(857, 4);
             this.pbStop.Name = "pbStop";
             this.pbStop.Size = new System.Drawing.Size(89, 61);
             this.pbStop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -114,7 +114,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::Snake_Game.Properties.Resources.bg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(982, 553);
+            this.ClientSize = new System.Drawing.Size(958, 553);
             this.Controls.Add(this.topPanel);
             this.Name = "Form1";
             this.Text = "Snake Game";
