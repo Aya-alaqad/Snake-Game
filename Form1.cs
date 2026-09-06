@@ -27,16 +27,16 @@ namespace Snake_Game
 
         private void resetGameToDefault()
         {
+            pbStop.Image = Properties.Resources.play;
             isStopped = false;
-            food = new Point(400, 400);
+            food = new Point();
+            changeFoodPosition();
             snake = new clsSnake();
             snake.body.Add(new Point(500, 500));
             score = 0;
-
             lblScore.Text =score.ToString();
             pbStop.Enabled = true;
             timer1.Start();
-
         }
         private void Form1_Load(object sender, EventArgs e)
         {
