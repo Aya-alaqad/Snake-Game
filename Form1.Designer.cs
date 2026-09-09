@@ -30,12 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             this.topPanel = new System.Windows.Forms.Panel();
+            this.pbSpeed = new System.Windows.Forms.PictureBox();
             this.lblScore = new System.Windows.Forms.Label();
             this.pbApple = new System.Windows.Forms.PictureBox();
             this.pbRestart = new System.Windows.Forms.PictureBox();
             this.pbStop = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.topPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbApple)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRestart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStop)).BeginInit();
@@ -44,6 +46,7 @@
             // topPanel
             // 
             this.topPanel.BackgroundImage = global::Snake_Game.Properties.Resources.wood;
+            this.topPanel.Controls.Add(this.pbSpeed);
             this.topPanel.Controls.Add(this.lblScore);
             this.topPanel.Controls.Add(this.pbApple);
             this.topPanel.Controls.Add(this.pbRestart);
@@ -54,6 +57,19 @@
             this.topPanel.Size = new System.Drawing.Size(958, 68);
             this.topPanel.TabIndex = 0;
             // 
+            // pbSpeed
+            // 
+            this.pbSpeed.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.pbSpeed.BackColor = System.Drawing.Color.Transparent;
+            this.pbSpeed.Image = global::Snake_Game.Properties.Resources._1x;
+            this.pbSpeed.Location = new System.Drawing.Point(716, 4);
+            this.pbSpeed.Name = "pbSpeed";
+            this.pbSpeed.Size = new System.Drawing.Size(89, 61);
+            this.pbSpeed.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbSpeed.TabIndex = 3;
+            this.pbSpeed.TabStop = false;
+            this.pbSpeed.Click += new System.EventHandler(this.pbSpeed_Click);
+            // 
             // lblScore
             // 
             this.lblScore.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -61,7 +77,7 @@
             this.lblScore.BackColor = System.Drawing.Color.Transparent;
             this.lblScore.Font = new System.Drawing.Font("Goudy Stout", 20F);
             this.lblScore.ForeColor = System.Drawing.Color.White;
-            this.lblScore.Location = new System.Drawing.Point(95, 19);
+            this.lblScore.Location = new System.Drawing.Point(96, 19);
             this.lblScore.Name = "lblScore";
             this.lblScore.Size = new System.Drawing.Size(48, 47);
             this.lblScore.TabIndex = 1;
@@ -72,7 +88,7 @@
             this.pbApple.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.pbApple.BackColor = System.Drawing.Color.Transparent;
             this.pbApple.Image = global::Snake_Game.Properties.Resources.apple;
-            this.pbApple.Location = new System.Drawing.Point(12, 1);
+            this.pbApple.Location = new System.Drawing.Point(4, 1);
             this.pbApple.Name = "pbApple";
             this.pbApple.Size = new System.Drawing.Size(77, 67);
             this.pbApple.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -84,7 +100,7 @@
             this.pbRestart.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.pbRestart.BackColor = System.Drawing.Color.Transparent;
             this.pbRestart.Image = global::Snake_Game.Properties.Resources.restart;
-            this.pbRestart.Location = new System.Drawing.Point(755, 4);
+            this.pbRestart.Location = new System.Drawing.Point(795, 4);
             this.pbRestart.Name = "pbRestart";
             this.pbRestart.Size = new System.Drawing.Size(89, 61);
             this.pbRestart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -97,7 +113,7 @@
             this.pbStop.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.pbStop.BackColor = System.Drawing.Color.Transparent;
             this.pbStop.Image = global::Snake_Game.Properties.Resources.play;
-            this.pbStop.Location = new System.Drawing.Point(857, 4);
+            this.pbStop.Location = new System.Drawing.Point(874, 4);
             this.pbStop.Name = "pbStop";
             this.pbStop.Size = new System.Drawing.Size(89, 61);
             this.pbStop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -122,6 +138,7 @@
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbApple)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRestart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStop)).EndInit();
@@ -137,6 +154,7 @@
         private System.Windows.Forms.PictureBox pbStop;
         private System.Windows.Forms.Label lblScore;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.PictureBox pbSpeed;
     }
 }
 

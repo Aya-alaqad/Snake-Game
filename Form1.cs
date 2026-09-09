@@ -19,15 +19,24 @@ namespace Snake_Game
         Point food;
         int score;
         Random r = new Random();
+        byte speed = 1;
         public Form1()
         {
             InitializeComponent();
             this.DoubleBuffered = true;
         }
 
+        private void resetSpeed()
+        {
+            pbSpeed.Image = Properties.Resources._1x;
+            speed = 1;
+            timer1.Interval = 100;
+        }
+
         private void resetGameToDefault()
         {
             pbStop.Image = Properties.Resources.play;
+            resetSpeed();
             isStopped = false;
             food = new Point();
             changeFoodPosition();
@@ -140,6 +149,16 @@ namespace Snake_Game
                 timer1.Start();
                 pbStop.Image = Properties.Resources.play;
             }
+
+        }
+
+        private void pbSpeed_Click(object sender, EventArgs e)
+        {
+            speed = speed == 3 ? (byte)(1) : (byte)(speed + 1);
+
+            pbSpeed.Image = speed == 1 ? Properties.Resources._1x : (speed == 2 ? Properties.Resources._2x : Properties.Resources._3x);
+
+            timer1.Interval = 100/speed;
 
         }
     }
